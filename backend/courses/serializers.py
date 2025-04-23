@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Course, Tee, Hole, HoleTee
+from .models import Course, Tee, Hole, HoleTee, TeeDetails
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,9 +16,12 @@ class HoleSerializer(serializers.ModelSerializer):
         model = Hole
         fields = '__all__'
         
-class HoleSerializer(serializers.ModelSerializer):
+class HoleTeeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Hole
+        model = HoleTee
         fields = '__all__'
 
-
+class TeeDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TeeDetails
+        fields = '__all__'

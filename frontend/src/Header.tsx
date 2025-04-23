@@ -13,12 +13,12 @@ function Header() {
 	const { user, logoutUser } = authContext;
 
 	return (
-		<header className="w-full bg-white shadow-md py-4 px-16 flex justify-between items-center fixed z-50">
+		<header className="w-full bg-white shadow-md py-4 px-16 flex justify-between items-center z-50">
 			{/* Logo Section */}
 			<Link to="/">
 				<div className="flex items-center gap-3">
 					<img
-						src="/logos/golf-ball.svg" // Replace this with your golf-themed logo
+						src="/golf-ball.png"
 						alt="Swing Stats Logo"
 						className="h-12 w-12 object-contain"
 					/>

@@ -46,8 +46,15 @@ class Tee(models.Model):
 
 class TeeDetails(models.Model):
     tee = models.ForeignKey(Tee, on_delete=models.CASCADE, related_name="details")
+    par = models.IntegerField(null=True)
     gender = models.CharField(max_length=10, choices=[('male', 'Male'), ('female', 'Female')])
     rating = models.FloatField()
+    bogey_rating = models.FloatField(null=True)
+    front_rating = models.FloatField(null=True)
+    front_slope = models.IntegerField(null=True)
+    back_rating = models.FloatField(null=True)
+    back_slope = models.IntegerField(null=True)
+    
     slope = models.FloatField()
 
     class Meta:
