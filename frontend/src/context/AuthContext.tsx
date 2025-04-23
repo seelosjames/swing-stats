@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
 
   const loginUser = async (email: string, password: string) => {
-    const response = await fetch("http://127.0.0.1:8000/authentication/token/", {
+    const response = await fetch("http://127.0.0.1:8000/api/authentication/token/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: email, password }),
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
 
   const registerUser = async (email: string, password: string) => {
-    const response = await fetch("http://127.0.0.1:8000/authentication/register/", {
+    const response = await fetch("http://127.0.0.1:8000/api/authentication/register/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const refreshToken = async () => {
       if (!authTokens) return;
 
-      const response = await fetch("http://127.0.0.1:8000/authentication/token/refresh/", {
+      const response = await fetch("http://127.0.0.1:8000/api/authentication/token/refresh/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refresh: authTokens.refresh }),

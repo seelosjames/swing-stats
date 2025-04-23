@@ -38,12 +38,23 @@ class Hole(models.Model):
 class Tee(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="tees")
     name = models.CharField(max_length=50)  # e.g. Blue, White, Red
-    rating = models.FloatField()
-    slope = models.FloatField()
-    total_yardage = models.IntegerField(blank=True, null=True)  # optional but useful
+    total_yardage = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.course.name} - {self.name} Tees"
+
+
+class TeeDetails(models.Model):
+    tee = models.ForeignKey(Tee, on_delete=models.CASCADE, related_name="details")
+    gender = models.CharField(max_length=10, choices=[('male', 'Male'), ('female', 'Female')])
+    rating = models.FloatField()
+    slope = models.FloatField()
+
+    class Meta:
+        unique_together = ('tee', 'gender')
+
+    def __str__(self):
+        return f"{self.tee.name} - {self.gender.capitalize()} Tees"
     
 class HoleTee(models.Model):
     hole = models.ForeignKey(Hole, on_delete=models.CASCADE, related_name="hole_tees")

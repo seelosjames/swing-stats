@@ -15,7 +15,7 @@ function Landing() {
 	useEffect(() => {
 		const fetchCourses = async () => {
 			try {
-				const response = await fetch("/api/courses/"); // adjust to your actual endpoint
+				const response = await fetch("http://localhost:8000/api/courses/"); // adjust to your actual endpoint
 				const data: Course[] = await response.json(); // type the response as Course[]
 				setCourses(data);
 			} catch (error) {

@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Course, Hole, Tee, HoleTee  # Import your model
 
-# Register your models here.
+# Register your model with the admin site
+admin.site.register(Course)
+admin.site.register(Hole)
+admin.site.register(Tee)
+admin.site.register(HoleTee)
